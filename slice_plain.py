@@ -30,6 +30,10 @@ def slice_plane_dynamic(lines=1):
 
     return slices[lines]
 
+def slice_plane_closed_form(lines=1):
+    triangle_numbers = sum([_ for _ in range(lines + 1)])
+    return triangle_numbers + 1
+
 
 lines = (1, 2, 3, 4)
 for line in lines:
@@ -39,3 +43,8 @@ print()
 
 for line in lines:
     print(slice_plane_dynamic(line))
+
+print()
+
+for line in lines:
+    print(slice_plane_closed_form(line))
