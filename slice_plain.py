@@ -18,7 +18,24 @@ def slice_plane_recursive(lines=1):
     intersection_points = lines - 1
     return slice_plane_recursive(lines - 1) + intersection_points + 1
 
+def slice_plane_dynamic(lines=1):
+    if lines < 0:
+        return 1
+
+    slices = [1, 2]
+
+    for i in range(2, lines + 1):
+        planes = i + slices[i - 1]
+        slices.append(planes)
+
+    return slices[lines]
+
 
 lines = (1, 2, 3, 4)
 for line in lines:
     print(slice_plane_recursive(line))
+
+print()
+
+for line in lines:
+    print(slice_plane_dynamic(line))
