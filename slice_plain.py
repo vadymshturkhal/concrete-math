@@ -1,3 +1,16 @@
+"""
+    How many max pieces of pizza we can take, when we cut pizza N times?
+
+    If plane has no lines it has 1 plane.
+    If plane intersected by 1 line it has 2 planes.
+    If plane intersected by 2 lins it has 4 planes.
+
+    slice_plane(0) = 1
+    slice_plane(1) = 2
+    slice_plane(2) = 4
+"""
+
+
 def slice_plane_recursive(lines=1):
     if lines <= 0:
         return 1
