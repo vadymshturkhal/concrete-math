@@ -11,24 +11,25 @@ def hanoi_show(height=1, start_plank=0, finnish_plank=1):
     arrangement(height, planks, start_plank, finnish_plank)
     print(planks)
 
-def arrangement(height: int, planks, start_plank=0, finnish_plank=1):
+def arrangement(height: int, planks, start_plank=0, finish_plank=1):
     if height == 1:
         circle = planks[start_plank].popleft()
-        planks[finnish_plank].appendleft(circle)
+        planks[finish_plank].appendleft(circle)
         return
 
-    temp_plank = set([0, 1, 2]).difference(set([start_plank, finnish_plank])).pop()
+    temp_plank = set([0, 1, 2]).difference(set([start_plank, finish_plank])).pop()
 
-    # Move first circle to tmp
-    arrangement(height-1, planks, start_plank=start_plank, finnish_plank=temp_plank)
+    # Move all circlec except last to tmp
+    arrangement(height-1, planks, start_plank=start_plank, finish_plank=temp_plank)
     print(planks)
 
-    # Add second plank
-    second_plank = planks[start_plank].popleft()
-    planks[finnish_plank].appendleft(second_plank)
+    # Move last circle to finnish plank
+    second_circle = planks[start_plank].popleft()
+    planks[finish_plank].appendleft(second_circle)
     print(planks)
-    # Move all circles except last to finnish plank
-    arrangement(height-1, planks, start_plank=temp_plank, finnish_plank=finnish_plank)
+
+    # Move all circles from temp plank to the finish plank
+    arrangement(height-1, planks, start_plank=temp_plank, finish_plank=finish_plank)
 
 def hanoi_times_rec(height):
     if height < 1:
