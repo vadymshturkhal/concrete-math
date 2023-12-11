@@ -56,10 +56,13 @@ def hanoi_times_dynamic(height):
     return heights[-1]
 
 def hanoi_closed_form(height):
+    if height < 0:
+        return 0
+
     return 2**height - 1
 
 h = 8
 hanoi_show(h)
 print(hanoi_times_rec(h))
 print(hanoi_times_dynamic(h))
-print(hanoi_closed_form(h))
+print(hanoi_closed_form(8))
