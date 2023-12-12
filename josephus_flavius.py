@@ -11,3 +11,13 @@
 
     The elimination order is 2, 4, 6, 8, 10, 3, 7, 1, 9, so 5 survives.
 """
+
+from collections import deque
+
+
+def survivors_number(people_number, eliminate=2):
+    if people_number < 1:
+        return 0
+
+    if eliminate <= 1:
+        return 0
