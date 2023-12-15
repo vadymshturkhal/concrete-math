@@ -51,19 +51,35 @@ def survivors_number_with_power_of_two(people_number=1, *, eliminate=2):
     survivor = 1 + terms_between * 2
     return survivor
 
+def survivors_number_recur(people_number=1, *, eliminate=2):
+    if people_number < 1:
+        return 0
+
+    if people_number == 1:
+        return 1
+    
+    if people_number % eliminate != 0:
+        return 2 * survivors_number_recur(people_number // 2) + 1
+    return 2 * survivors_number_recur(people_number // 2) - 1
+
 people_numbers = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16)
 
 survivors = []
 for people_number in people_numbers:
     survivor =  survivors_number_deque(people_number)
     survivors.append(survivor)
-
 print(people_numbers)
 print(survivors)
 
 survivors = []
 for people_number in people_numbers:
     survivor =  survivors_number_with_power_of_two(people_number)
+    survivors.append(survivor)
+print(survivors)
+
+survivors = []
+for people_number in people_numbers:
+    survivor =  survivors_number_recur(people_number)
     survivors.append(survivor)
 
 print(survivors)
