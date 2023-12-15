@@ -15,7 +15,7 @@
 from collections import deque
 
 
-def survivors_number_deque(people_number=6, eliminate=2):
+def survivors_number_deque(people_number=1, eliminate=2):
     if people_number < 1:
         return 0
 
@@ -30,14 +30,14 @@ def survivors_number_deque(people_number=6, eliminate=2):
 
         if counter % eliminate != 0:
             survivors.append(candidate)
-        
+
         counter += 1
     
     return survivors.pop()
 
-people_numbers = (1, 2, 3, 4, 5, 6)
-eliminate = 2
 
+eliminate = 2
+people_numbers = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25)
 
 survivors = []
 for people_number in people_numbers:
