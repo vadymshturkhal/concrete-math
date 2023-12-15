@@ -62,10 +62,24 @@ def survivors_number_recur(people_number=1, *, eliminate=2):
         return 2 * survivors_number_recur(people_number // 2) + 1
     return 2 * survivors_number_recur(people_number // 2) - 1
 
+def survivors_number_binary(people_number=1, *, eliminate=2):
+    if people_number < 1:
+        return 0
+
+    binary_people_num = deque(bin(people_number))
+    binary_people_num.popleft()
+    binary_people_num.popleft()
+    binary_people_num.rotate(-1)
+
+    rotated = ''.join(binary_people_num)
+    rotated_num = int(rotated, 2)
+
+    return rotated_num
+
 people_numbers = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16)
 print(people_numbers)
 
-flavuises = [survivors_number_deque, survivors_number_with_power_of_two, survivors_number_recur]
+flavuises = [survivors_number_deque, survivors_number_with_power_of_two, survivors_number_recur, survivors_number_binary]
 
 for flavius in flavuises:
     survivors = []
