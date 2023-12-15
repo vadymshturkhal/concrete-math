@@ -13,9 +13,10 @@
 """
 
 from collections import deque
+from math import log
 
 
-def survivors_number_deque(people_number=1, eliminate=2):
+def survivors_number_deque(people_number=1, *, eliminate=2):
     if people_number < 1:
         return 0
 
@@ -35,15 +36,34 @@ def survivors_number_deque(people_number=1, eliminate=2):
     
     return survivors.pop()
 
+def survivors_number_with_power_of_two(people_number=1, *, eliminate=2):
+    if people_number < 1:
+        return 0
 
-eliminate = 2
-people_numbers = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25)
+    if eliminate <= 1:
+        return 0
+    
+    min_power_of = log(people_number, eliminate)
+    min_power_of = int(min_power_of)
+
+    terms_between = people_number - 2**min_power_of
+
+    survivor = 1 + terms_between * 2
+    return survivor
+
+people_numbers = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16)
 
 survivors = []
 for people_number in people_numbers:
-    survivor =  survivors_number_deque(people_number, eliminate)
+    survivor =  survivors_number_deque(people_number)
     survivors.append(survivor)
 
-print(f"{eliminate = }")
 print(people_numbers)
+print(survivors)
+
+survivors = []
+for people_number in people_numbers:
+    survivor =  survivors_number_with_power_of_two(people_number)
+    survivors.append(survivor)
+
 print(survivors)
