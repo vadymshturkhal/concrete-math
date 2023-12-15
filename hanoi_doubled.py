@@ -14,7 +14,7 @@ def hanoi_show(height=1, start_plank=0, finnish_plank=1):
     circles = deque(circles)
     planks = [circles, deque(), deque()]
 
-    arrangement(height * 2, planks, start_plank, finnish_plank)
+    arrangement(len(circles), planks, start_plank, finnish_plank)
     print(planks)
 
 def arrangement(height: int, planks, start_plank=0, finish_plank=1):
@@ -26,7 +26,7 @@ def arrangement(height: int, planks, start_plank=0, finish_plank=1):
         circle = planks[start_plank].popleft()
         planks[finish_plank].appendleft(circle)
         return
-
+    print(height)
     temp_plank = set([0, 1, 2]).difference(set([start_plank, finish_plank])).pop()
 
     # Move next two discs to temp plank
@@ -34,6 +34,9 @@ def arrangement(height: int, planks, start_plank=0, finish_plank=1):
     print(planks)
 
     # Move last disc to finish plank
+    second_circle = planks[start_plank].popleft()
+    planks[finish_plank].appendleft(second_circle)
+    print(planks)
     second_circle = planks[start_plank].popleft()
     planks[finish_plank].appendleft(second_circle)
     print(planks)
