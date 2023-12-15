@@ -19,16 +19,16 @@ def arrangement(height: int, planks, start_plank=0, finish_plank=1):
 
     temp_plank = set([0, 1, 2]).difference(set([start_plank, finish_plank])).pop()
 
-    # Move all circlec except last to tmp
+    # Move all discs except last to tmp
     arrangement(height-1, planks, start_plank=start_plank, finish_plank=temp_plank)
     print(planks)
 
-    # Move last circle to finnish plank
+    # Move last disc to finish plank
     second_circle = planks[start_plank].popleft()
     planks[finish_plank].appendleft(second_circle)
     print(planks)
 
-    # Move all circles from temp plank to the finish plank
+    # Move all discs from temp plank to the finish plank
     arrangement(height-1, planks, start_plank=temp_plank, finish_plank=finish_plank)
 
 def hanoi_times_rec(height):
@@ -65,4 +65,4 @@ h = 8
 hanoi_show(h)
 print(hanoi_times_rec(h))
 print(hanoi_times_dynamic(h))
-print(hanoi_closed_form(8))
+print(hanoi_closed_form(h))
