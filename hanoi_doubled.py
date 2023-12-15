@@ -5,7 +5,6 @@ def hanoi_show(height=1, start_plank=0, finnish_plank=1):
     if height < 1:
         return
 
-
     circles = []
     
     for i in range(1, height):
@@ -42,35 +41,7 @@ def arrangement(height: int, planks, start_plank=0, finish_plank=1):
     # Move all circles from temp plank to the finish plank
     arrangement(height-2, planks, start_plank=temp_plank, finish_plank=finish_plank)
 
-def hanoi_times_rec(height):
-    if height < 1:
-        return 0
-
-    if height == 1:
-        return 1
-
-    if height == 2:
-        return 3
-
-    return 1 + hanoi_times_rec(height - 1) + hanoi_times_rec(height - 1)
-
-def hanoi_times_dynamic(height):
-    if height < 0:
-        return 0
-
-    heights = [0, 1, 3]
-
-    for _ in range(height - 2):
-        next_height = heights[-1] + 1 + heights[-1]
-        heights.append(next_height)
-    
-    return heights[-1]
-
-def hanoi_closed_form(height):
-    if height < 0:
-        return 0
-
-    return 2**height - 1
 
 h = 3
 hanoi_show(h)
+
