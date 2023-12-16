@@ -76,10 +76,27 @@ def survivors_number_shift(people_number=1, *, eliminate=2):
 
     return rotated_num
 
+def survivors_number_binary(people_number=1, *, eliminate=2):
+    if people_number < 1:
+        return 0
+
+    if people_number == 1:
+        return 1
+
+    leader_power_of_two = int(log(people_number, 2))
+
+    survivor = people_number - 2**leader_power_of_two
+    survivor = survivor << 1
+    survivor += 1
+
+    return survivor
+
+
 people_numbers = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16)
 print(people_numbers)
 
-flavuises = [survivors_number_deque, survivors_number_with_power_of_two, survivors_number_recur, survivors_number_shift]
+flavuises = [survivors_number_deque, survivors_number_with_power_of_two, 
+                survivors_number_recur, survivors_number_shift, survivors_number_binary]
 
 for flavius in flavuises:
     survivors = []
