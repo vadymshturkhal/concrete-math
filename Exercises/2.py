@@ -24,6 +24,19 @@ def hanoi_restricted(height=1):
 
     return 3 * hanoi_restricted(height - 1) + 2
 
+def hanoi_restricted_dynamic(height=1):
+    if height < 0:
+        return 0
+
+    heights = [0, 2]
+
+    for i in range(1, height + 1):
+        moves = 2 + 3 * heights[i]
+        heights.append(moves)
+
+    return heights[height]
+
 
 h = 3
 print(hanoi_restricted(h))
+print(hanoi_restricted_dynamic(h))
