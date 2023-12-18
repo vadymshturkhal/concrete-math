@@ -1,3 +1,14 @@
+"""
+    A Double Tower of Hanoi contains 2n disks of n different sizes, two of
+    each size. As usual, we’re required to move only one disk at a time,
+    without putting a larger one over a smaller one.
+    
+    a)  How many moves does it take to transfer a double tower from one
+        peg to another, if disks of equal size are indistinguishable from each
+        other?
+"""
+
+
 from collections import deque
 
 
