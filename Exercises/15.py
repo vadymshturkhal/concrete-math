@@ -39,21 +39,30 @@ def get_circle(people_number=1,  *, eliminate=2):
     return circle
 
 def flavius_friend_formula(people_number=1, *, eliminate=2):
+    if people_number < 2:
+        return 0
+
     correct_circle = get_circle(people_number)
 
+    if people_number == correct_circle:
+        return people_number
 
-    return correct_circle
+    difference = people_number - correct_circle
 
-people_numbers = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16)
+    return difference * 2 - 1
 
-print(flavius_friend_formula(44))
+people_numbers = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 44)
 
-# friends = []
-# for people_number in people_numbers:
-#     friend = flavius_friend(people_number)
-#     friends.append(friend)
+flavuis_friends = [flavius_friend, flavius_friend_formula]
 
-# print(friends)
+for flavius_friend in flavuis_friends:
+    friends = []
+
+    for people_number in people_numbers:
+        friend = flavius_friend(people_number)
+        friends.append(friend)
+
+    print(friends)
 
 (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16)
 [1, 1, 3, 1, 3, 5, 7, 1, 3, 5,  7,  9,  11, 13, 15, 1]
