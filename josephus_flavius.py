@@ -102,6 +102,6 @@ for flavius in flavuises:
     survivors = []
 
     for people_number in people_numbers:
-        survivor =  survivors_number_deque(people_number)
+        survivor =  flavius(people_number)
         survivors.append(survivor)
     print(survivors)
