@@ -45,6 +45,22 @@ def survivors_number_deque(people_number=1, eliminate=2):
 
     return survivors.pop()
 
+def flavius_third_list(people_number=1, *, eliminate=3):
+    if people_number < 0:
+        return
+
+    survivors = [0, 1, 2]
+
+    for i in range(2, people_number):
+        if survivors[i] == i:
+            survivors.append(2)
+        elif survivors[i] == i - 1:
+            survivors.append(1)
+        else:
+            survivors.append(survivors[i] + 3)
+
+    return survivors[people_number]
+
 
 # people_numbers = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16)
 people_numbers = [_ for _ in range(1, 16 + 1)]
@@ -53,6 +69,12 @@ print(people_numbers)
 survivors = []
 for people_number in people_numbers:
     survivor = survivors_number_deque(people_number, eliminate=3)
+    survivors.append(survivor)
+print(survivors)
+
+survivors = []
+for people_number in people_numbers:
+    survivor = flavius_third_list(people_number, eliminate=3)
     survivors.append(survivor)
 print(survivors)
 
