@@ -5,21 +5,19 @@
     third remaining person until no one was left. But Josephus, along with an
     unindicted co-conspirator, wanted none of this suicide nonsense; so he quickly
     calculated where he and his friend should stand in the vicious circle.
-"""
 
+    Examples:
+        1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16
+        1, 2, 2, 1, 4, 1, 4, 7, 1,  4, 7,  10, 13, 2,  5,  8
 
-"""
-    During the Jewish-Roman war, he was among a band of 41
-    Jewish rebels trapped in a cave by the Romans. Preferring suicide to capture,
-    the rebels decided to form a circle and, proceeding around it, to kill every
-    third remaining person until no one was left. But Josephus, along with an
-    unindicted co-conspirator, wanted none of this suicide nonsense; so he quickly
-    calculated where he and his friend should stand in the vicious circle.
+        17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32
+        11, 14, 17, 20, 2,  5,  8,  11, 14, 17, 20, 23, 26, 29, 1,  4
 
-    We start with N people numbered 1 to n around a circle,
-    and we eliminate every second remaining person until only one survives.
+        31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46
+        1,  4,  7,  10, 13, 16, 19, 22, 25, 28, 31, 34, 37, 40, 43, 46
 
-    The elimination order is 2, 4, 6, 8, 10, 3, 7, 1, 9, so 5 survives.
+        47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70
+        2,  5,  8,  11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68, 1
 """
 
 from collections import deque
@@ -62,7 +60,6 @@ def flavius_third_list(people_number=1, *, eliminate=3):
     return survivors[people_number]
 
 
-# people_numbers = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16)
 people_numbers = [_ for _ in range(1, 16 + 1)]
 print(people_numbers)
 
@@ -77,9 +74,3 @@ for people_number in people_numbers:
     survivor = flavius_third_list(people_number, eliminate=3)
     survivors.append(survivor)
 print(survivors)
-
-[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32]
-[1, 2, 2, 1, 4, 1, 4, 7, 1,  4, 7,  10, 13, 2,  5,  8,  11, 14, 17, 20, 2,  5,  8,  11, 14, 17, 20, 23, 26, 29, 1,  4]
-
-[31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70]
-[1,  4,  7,  10, 13, 16, 19, 22, 25, 28, 31, 34, 37, 40, 43, 46, 2,  5,  8,  11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68, 1]
