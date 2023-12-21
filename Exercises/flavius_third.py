@@ -59,6 +59,27 @@ def flavius_third_list(people_number=1, *, eliminate=3):
 
     return survivors[people_number]
 
+def flavius_third_in_place(people_number=1, *, eliminate=3):
+    if people_number < 0:
+        return
+
+    if people_number < 2:
+        return people_number
+
+    current_survivor = 2
+    next_survivor = 2
+
+    for i in range(2, people_number):
+        if current_survivor == i:
+            next_survivor = 2
+        elif current_survivor == i - 1:
+            next_survivor = 1
+        else:
+            next_survivor += 3
+
+        current_survivor = next_survivor
+
+    return next_survivor
 
 people_numbers = [_ for _ in range(1, 16 + 1)]
 print(people_numbers)
@@ -72,5 +93,11 @@ print(survivors)
 survivors = []
 for people_number in people_numbers:
     survivor = flavius_third_list(people_number, eliminate=3)
+    survivors.append(survivor)
+print(survivors)
+
+survivors = []
+for people_number in people_numbers:
+    survivor = flavius_third_in_place(people_number, eliminate=3)
     survivors.append(survivor)
 print(survivors)
