@@ -1,4 +1,4 @@
-n = 44
+n = 445
 sum_ = 0
 
 for k in range(1, n + 1):
