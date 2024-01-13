@@ -13,6 +13,6 @@ def harmonic(n):
     return 1 / n + harmonic(n - 1)
 
 def formula(n):
-    return 2 * harmonic(n) - 1 + (1 / (n + 1))
+    return 2 * harmonic(n) + (1 / (n + 1)) - 1
 
 print(formula(n))
