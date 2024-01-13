@@ -4,15 +4,15 @@ def harmonic(n):
 
     return 1 / n + harmonic(n - 1)
 
+# For n + 1
 def formula(n):
-    return 2 * (harmonic(n) - 1) + (harmonic(n) + 1) / (n * (n + 1)) - 1 + 3/4
+    return 2 * harmonic(n) - 1/n - 1
 
-
-n = 4
+n = 435
 
 sum_ = 0
 for k in range(1, n + 1):
     sum_ += (2*k + 1) / (k * (k + 1))
 print(sum_)
 
-print(formula(n))
+print(formula(n + 1))
