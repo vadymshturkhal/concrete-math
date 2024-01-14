@@ -11,12 +11,10 @@ def formula(n):
 
     for k in range(1, n + 1):
         first_squared = first_squared * k
+        second_squared = second_squared * k**2
     
     first_squared = first_squared**2
 
-    for k in range(1, n + 1):
-        second_squared = second_squared * k**2
-    
     return first_squared * second_squared
 
 print(formula(n))
