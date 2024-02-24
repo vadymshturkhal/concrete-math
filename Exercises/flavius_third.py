@@ -61,7 +61,7 @@ def flavius_third_list(people_number=1, *, eliminate=3):
 
 def flavius_third_in_place(people_number=1, *, eliminate=3):
     if people_number < 0:
-        return
+        return 0
 
     if people_number < 2:
         return people_number
